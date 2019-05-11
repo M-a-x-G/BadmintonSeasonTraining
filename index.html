@@ -4,33 +4,49 @@
     <meta charset="UTF-8">
     <title>Training</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href=styles.css>
     <script src="BadmintonSeasonTraining.js"></script>
 </head>
 <body onload=randomElements(4)>
-    <div class="d-flex justify-content-center">
-        <div class="btn-group">
-            <button onclick=randomElements(4); type="button" class="btn btn-light btn-lg">4 Übungen</button>
-            <button onclick=randomElements(5); type="button" class="btn btn-light btn-lg">5 Übungen</button>
+<div class="content">
+    <div>
+        <div class="radio-btn-container selectedProperty">
+            <label class="container">4 Übungen
+                <input value="4" onclick="randomElements(4);" type="radio" checked="checked" name="exerciseCount">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">4 Durchgänge
+                <input value="4"  type="radio" checked="checked" name="exercisePasses">
+                <span class="checkmark"></span>
+            </label>
         </div>
+        <div class="radio-btn-container selectedProperty">
+            <label class="container">5 Übungen
+                <input value="5" onclick="randomElements(5);" type="radio" name="exerciseCount">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">5 Durchgänge
+                <input value="5" type="radio" name="exercisePasses">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div>
+            <div class="btn-group">
+                <button class="selectedProperty" onclick=start(this); type="button">Start</button>
+            </div>
+        </div>
+
+        <p class="slidecontainer selectedProperty">
+            <input type="range" min="30" max="50" value="40" class="slider" id="timeSelectSlider">
+        </p>
+        <p><span id="exerciseCount">4</span> <span id="exerciseTimer">00</span></p>
     </div>
-    <div style="padding-top: 2%" class="d-flex justify-content-center">
-        <div id="selected" class="card" style="width: 19rem;">
+    <div>
+        <div id="selected" class="card">
             <ul id="trainingList" class="list-group list-group-flush">
             </ul>
         </div>
     </div>
-    </body>
+</div>
+</body>
 </html>
